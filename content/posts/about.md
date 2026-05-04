@@ -1,6 +1,6 @@
 ---
 title: "About"
-date: 2026-05-04T00:14:29Z
+date: 2026-05-04T01:10:19Z
 author: "Dale Hassinger"
 draft: false
 ---
