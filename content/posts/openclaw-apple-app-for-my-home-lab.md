@@ -1,6 +1,6 @@
 ---
 title: "OpenClaw | Apple App for my Home Lab"
-date: 2026-03-01T05:00:00Z
+date: 2026-05-04T01:10:30Z
 author: "Dale Hassinger"
 tags:
   - OpenClaw
