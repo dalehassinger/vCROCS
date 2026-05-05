@@ -42,7 +42,7 @@ These are the steps that I use to maintain custom grain data with a Windows Serv
 
 If you want to run a script locally on a minion and use salt functions that is where you use the salt-call command. After you learn the salt-functions and are logged into a Windows Server locally, you can still use salt commands by using salt-call.
 
-{{< highlight powershell >}}
+```powershell
 # --- example code
 salt-call --version
 salt-call test.ping
@@ -55,7 +55,7 @@ salt-call win_servermanager.list_installed
 
 # --- Show Installed Sofwtare
 salt-call pkg.list_pkgs
-{{< /highlight >}}
+```
 
 [Link to salt-call Documentation](https://docs.saltproject.io/en/latest/ref/cli/salt-call.html)
 
@@ -79,7 +79,7 @@ See code examples below to add Windows Server Features|Roles, Installed Software
 
 ## - Add Windows Features | Roles as grain data:  
 
-{{< highlight powershell >}}
+```powershell
 <#
 .SYNOPSIS
   This Script is used to Get Windows Servers Features and add as Grain Data
@@ -168,13 +168,13 @@ $saltCommand = 'salt-call saltutil.sync_grains'
 Invoke-Expression -Command $saltCommand
 
 # ----- [ End of Code ] ---------------------------------------------------------------------------
-{{< /highlight >}}
+```
 
 ---
 
 ## - Add Windows Server Installed Packages|Software as grain data:  
 
-{{< highlight powershell >}}
+```powershell
 <#
 .SYNOPSIS
   This Script is used to Get Windows Installed Packages and add as Grain Data
@@ -260,13 +260,12 @@ $saltCommand = 'salt-call saltutil.sync_grains'
 Invoke-Expression -Command $saltCommand
 
 # ----- [ End of Code ] ---------------------------------------------------------------------------
-
-{{< /highlight >}}
+```
 
 ---
 ## - Add Windows Running Services as grain data:  
 
-{{< highlight powershell >}}
+```powershell
 <#
 .SYNOPSIS
   This Script is used to Get Windows Servers Running Services and add as Grain Data
@@ -349,8 +348,7 @@ $saltCommand = 'salt-call saltutil.sync_grains'
 Invoke-Expression -Command $saltCommand
 
 # ----- [ End of Code ] ---------------------------------------------------------------------------
-
-{{< /highlight >}}
+```
 
 ---
 
