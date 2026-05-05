@@ -85,7 +85,8 @@ When you use VMware Aria Operations for Logs | SaaS Version, you need to have on
 
 **Code:**  
 
-{{< highlight PowerShell >}}  
+```PowerShell
+  
 
 # ----- Set Variable Values to use with Script
 $vcServer     = "vcsa8x.corp.local"
@@ -217,8 +218,7 @@ foreach($esxiName in $hostList){
 
 # ----- Disconnect from the vCenter Server or ESXi host
 Disconnect-VIServer -Server $vcServer -Confirm:$false
-
-{{< /highlight >}}  
+```  
 
 ---
 
@@ -227,7 +227,8 @@ Disconnect-VIServer -Server $vcServer -Confirm:$false
 * Here is a sample script that can be used to show the current "Syslog.global.logHost" values
 
 **Code:**  
-{{< highlight PowerShell >}}  
+```PowerShell
+  
 
 # ----- [ Get current sysloghost value on all Hosts ] -----
 
@@ -268,8 +269,7 @@ foreach($hostName in $hostList){
 
 # ----- Disconnect from the vCenter Server or ESXi host
 Disconnect-VIServer -Server $vcServer -Confirm:$false
-
-{{< /highlight >}}  
+```  
 
 ---
 
@@ -284,8 +284,7 @@ Disconnect-VIServer -Server $vcServer -Confirm:$false
 * Sample script if you would ever want to set the "Syslog.global.logHost" values to null on all the ESXi Hosts.  
 
 **Code:**  
-{{< highlight PowerShell >}}
-
+```PowerShell
 # ----- [ Set sysloghost value to null on all Hosts ] -----
 
 # ----- Set Variable Values to use with Script
@@ -314,8 +313,7 @@ foreach($hostName in $hostList){
 
 # ----- Disconnect from the vCenter Server or ESXi host
 Disconnect-VIServer -Server $vcServer -Confirm:$false
-
-{{< /highlight >}}  
+```  
 
 ---
 
@@ -324,12 +322,10 @@ Disconnect-VIServer -Server $vcServer -Confirm:$false
 * Very simple script to get the "Syslog.global.logHost" values on a single ESXi host.
 
 **Code:**  
-{{< highlight PowerShell >}}
-
+```PowerShell
 # ----- Simple Get syslogserver address on a specific Host
 Get-VMHostSysLogServer -VMHost 'esxi8-05.corp.local'
-
-{{< /highlight >}}  
+```  
 
 ---
 
