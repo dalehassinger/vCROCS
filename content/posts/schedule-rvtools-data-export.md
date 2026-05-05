@@ -27,8 +27,7 @@ I like to create a Scheduled Task in vRealize Orchestrator to create RVTools fil
 
 
 PowerShell Code:  
-{{< highlight powershell >}}
-
+```powershell
 # Script to create RVTools files and delete files older than 7 Days.
 # Also creates an Archive RVTools file on the first of every Month.
 
@@ -93,8 +92,7 @@ $fileToChange
 
 (Get-Item $fileToChange).LastWriteTime = Get-Date "02/01/2024 01:00"
 #>
-
-{{< /highlight >}}
+```
 
 ---
 
