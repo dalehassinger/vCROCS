@@ -32,8 +32,7 @@ In this example you can use Invoke-VMScript to run commands on a VM to install T
 
 ---
 
-{{< highlight powershell >}}
-
+```powershell
 $VMName = 'VM Name'
 
 #Copy file to the VM
@@ -55,8 +54,7 @@ Invoke-VMScript -VM $VMName -ScriptType Bash -ScriptText $PSText -GuestCredentia
 #Run command to get service staus.
 $PSText = 'service ds_agent status'
 $DeepSecurityServiceStatus = Invoke-VMScript -VM $VMName -ScriptType Bash -ScriptText $PSText -GuestCredential $SSHcred | Select-Object -ExpandProperty ScriptOutput
-
-{{< /highlight >}}
+```
 
 ---
 
@@ -64,7 +62,7 @@ In this example you can use Copy-VMGuestFile to copy a file to a VM and use invo
 
 ---
 
-{{< highlight powershell >}}
+```powershell
 $VMName = 'VM Name'
 
 Copy-VMGuestFile -Source G:\splunkforwarder-8.0.1-6db836e2fb9e-linux-2.6-amd64.deb -Destination /home/vcrocsadmin -VM $VMNAME -LocalToGuest -GuestCredential $SSHcredsmadmin
@@ -84,8 +82,7 @@ Invoke-VMScript -VM $VMName -ScriptType Bash -ScriptText $PSText -GuestCredentia
 #Run command to get service staus.
 $PSText = 'sudo -S <<< "Password1" service splunkd status'
 Invoke-VMScript -VM $VMName -ScriptType Bash -ScriptText $PSText -GuestCredential $SSHcred | Select-Object -ExpandProperty ScriptOutput
-
-{{< /highlight >}}
+```
 
 ---
 
