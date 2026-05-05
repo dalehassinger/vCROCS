@@ -23,8 +23,7 @@ Some basic PowerCLI commands to get started. I have some simple scripts in produ
 
 ---
 
-{{< highlight powershell >}}
-
+```powershell
 #Here are some basic commands that you can keep adding additional code
 #and get more precise on what you want to see.
 
@@ -50,8 +49,7 @@ Get-VM | Where-Object {$_.Powerstate -eq 'PoweredOn'} | Sort-Object Name
 #Shows all VMs sorted by Name, that are Powered On and only shows
 #Name,MemoryGB,NumCpu
 Get-VM | Where-Object {$_.Powerstate -eq 'PoweredOn'} | Sort-Object Name | Select-Object Name,MemoryGB,NumCpu
-
-{{< /highlight >}}
+```
 
 ---
 
