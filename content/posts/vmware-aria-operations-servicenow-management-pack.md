@@ -81,14 +81,15 @@ Here is the moid_populate_only.json with no changes.
 
 **Code:**  
 
-{{< highlight json >}}  
+```json
+  
 {
   "cmdbSync": {
     "syncMode": "POPULATE_ONLY",
     "objectIdentifierSource": "MOID"
   }
 }
-{{< /highlight >}}  
+```  
 
 ---
 
@@ -96,7 +97,8 @@ After I verified everything was working with OOTB settings, I wanted to add some
 
 **Code:**  
 
-{{< highlight json >}}  
+```json
+  
 {
   "cmdbSync": {
     "syncMode": "POPULATE_ONLY",
@@ -125,7 +127,7 @@ After I verified everything was working with OOTB settings, I wanted to add some
     }
   }
 }
-{{< /highlight >}}  
+```  
 
 ---
 
@@ -137,7 +139,8 @@ vROPS VM Field Names available (PowerShell Script):
 
 **Code:**  
 
-{{< highlight PowerShell >}}  
+```PowerShell
+  
 
 $opsURL      = "https://vao-ent.corp.local"
 $opsUsername = "admin"
@@ -216,8 +219,7 @@ $resourcePropertiesList = Invoke-RestMethod -Uri $uri -Method Get -Headers @{
 
 $outPut = $resourcePropertiesList.resourcePropertiesList.property
 Write-Output $outPut
-
-{{< /highlight >}}  
+```  
 
 
 ---
@@ -226,7 +228,8 @@ vROPS Host Field Names available (PowerShell Script):
 
 **Code:**  
 
-{{< highlight PowerShell >}}  
+```PowerShell
+  
 
 $opsURL      = "https://vao-ent.corp.local"
 $opsUsername = "admin"
@@ -304,8 +307,7 @@ $resourcePropertiesList = Invoke-RestMethod -Uri $uri -Method Get -Headers @{
 
 $outPut = $resourcePropertiesList.resourcePropertiesList.property
 Write-Output $outPut
-
-{{< /highlight >}}  
+```  
 
 ---
 
