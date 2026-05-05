@@ -52,8 +52,7 @@ I also have the example code saved in my [GitHub Repository](https://github.com/
 - Creates an Excel spreadsheet to save the events using the `importExcel` PowerShell module  
 - Includes optional code to send the newly created Excel file as an email attachment  
 
-{{< highlight PowerShell >}}
-
+```PowerShell
 # Import the ImportExcel module (requires prior installation)
 Import-Module ImportExcel
 
@@ -198,8 +197,7 @@ try {
 }
 $smtpClient.Dispose()
 $attachment.Dispose()
-
-{{< /highlight >}}
+```
 
 ---
 
