@@ -37,7 +37,7 @@ When you hold the mouse over the chart you will see the values.
 
 ## ChartJS Half Donut code:
 
-{{< highlight html >}}
+```html
 <html>
 <head>
   <title>Citrix Licensing Count</title>
@@ -73,7 +73,7 @@ When you hold the mouse over the chart you will see the values.
   </script>
 </body>
 </html>
-{{< /highlight >}}
+```
 
 
 ## ChartJS Horizintal Bar Chart. 
@@ -82,7 +82,7 @@ When you hold the mouse over the chart you will see the values.
 
 ## ChartJS Horizintal Bar Chart code:
 
-{{< highlight html >}}
+```html
 <html>
 <head>
   <title>Citrix Licensing Count</title>
@@ -116,7 +116,7 @@ When you hold the mouse over the chart you will see the values.
   </script>
 </body>
 </html>
-{{< /highlight >}}
+```
 
 ---
 
