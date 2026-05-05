@@ -46,9 +46,9 @@ Go to a terminal and type "ollama run llama3" to get started.
 ---
 
 <span style="font-size: 13px; color: red; font-weight: bold;">Code:</span>  
-{{< highlight Code>}}
+```Code
 ollama run llama3
-{{< /highlight >}}   
+```   
 
 ---
 
@@ -91,11 +91,11 @@ is a testament to its fast processing capabilities.
 ---
 
 <span style="font-size: 13px; color: red; font-weight: bold;">Code:</span>  
-{{< highlight Code>}}
+```Code
 ollama run llama3
 >>> Who Created PowerShell
 >>> /bye
-{{< /highlight >}}  
+```  
 
 ---
 
@@ -110,7 +110,7 @@ Now I will show some examples of how I use ollama everyday for coding and writin
 In my previous blogs, I've highlighted the versatility of PowerShell in automating various tasks. In this blog, I'll show how to harness the power of PowerShell to interact with AI assistants like Ollama. To start, I created a custom function that enables you to ask Ollama questions directly from the PowerShell command line. Here's the sample code to get you started:  
 
 <span style="font-size: 13px; color: red; font-weight: bold;">Code:</span>  
-{{< highlight PowerShell>}}
+```PowerShell
 # Function to ask Ollama
 function ask-ollama {
     
@@ -151,8 +151,7 @@ ask-ollama -question "Create a PowerShell script to connect to a vCenter, Get a 
 ask-ollama -question "Create a Salt State file to stop and disable a service with a name of Spooler"
 
 ask-ollama -question "Show me how to copy a powershell variable value to the clipboard"
-
-{{< /highlight >}}  
+```  
 
 ---
 
@@ -183,7 +182,7 @@ One of my habits when working with ollama, or ChatGPT, is setting a specific 'ro
 **Unedited Code Returned:**  
 
 <span style="font-size: 13px; color: red; font-weight: bold;">Code:</span>  
-{{< highlight PowerShell>}}
+```PowerShell
 # Set the connection settings
 $vcenter = "vcenter8x.corp.local"
 $username = "administrator@vsphere.local"
@@ -218,8 +217,7 @@ only include VMs that have at least one snapshot (`$_.HasSnapshot`).
 
 Save this script as a PowerShell file (e.g., `vms_with_snaps.ps1`) and run it to get the list of VMs with snapshots exported to the specified 
 CSV file!
-
-{{< /highlight >}}  
+```  
 
 ---
 
