@@ -37,8 +37,7 @@ Hope you find these snippets of code useful.
 ---
 
 Click to expand code:
-{{< highlight powershell >}}
-
+```powershell
 # Connect to vCenter
 $vCenterName = 'vCenter.vCrocs.info'
 Connect-VIServer $vCenterName -Credential $cred
@@ -148,9 +147,7 @@ $result = Invoke-RestMethod -Uri $geturl -Headers $headers -Method Get -Body $JS
 Write-Host $result.results.target_display_name
 
 # ----- [ End Get VMs assigned to a TAG NSX-T ] --------------------------------------------------
-
-
-{{< /highlight >}}
+```
 
 ---
 
