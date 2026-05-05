@@ -5,6 +5,7 @@ author: "Dale Hassinger"
 tags:
   - Blogs
   - Stats
+  - 2025
   - Career
   - vCommunity
 categories:
