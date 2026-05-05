@@ -4,11 +4,12 @@ date: 2021-09-05T04:00:00Z
 author: "Dale Hassinger"
 tags:
   - SaltStack Config
+  - VMware Aria Automation
+  - vRealize Automation
   - PowerShell
   - Windows Server
   - Configuration Management
   - Grains
-  - VCF Automation
 categories:
   - VCF Automation
 image: "images/vmware-vrealize-saltstack-config-as-a-windows-server-admin-part-4-featured.png"
@@ -34,9 +35,9 @@ This is what I learned about salt grains when using with a Windows OS.
 
 ## Example grains file:
 
-{{< highlight powershell >}}
+```powershell
 vCenterTags: TAG-VM-vCROCS|TAG-VM-WebServer|TAG-App-Hugo
-{{< /highlight >}}
+```
 
 * "Grain Name": "The value of the grain".
 * In my example I wanted the grain to be named "vCenterTags" and the values will be the vCenter TAG names "TAG-VM-vCROCS|TAG-VM-WebServer|TAG-App-Hugo". I have (3) vCenter TAGs assigned to this VM.  I will be able to create a SaltStack Config Target based on any of the TAGs.
@@ -60,7 +61,7 @@ When I add the vCenter TAG information to the grains file I am then able to crea
 ## Step 1: Get the VM Names and All Assigned vCenter TAGs into a csv file
 
 Example PowerShell Code to get all vCenter VM Names and all vCenter TAGs assigned to the VMs  
-{{< highlight powershell >}}
+```powershell
 # ----- [ Start Create CSV File with all VMs/TAGs Assigned ] ----------------------------
 
 # I did not include code to connect to the vCenter. There are many ways to do this step.
@@ -103,7 +104,7 @@ New-Item $allvmstaginfoFile -ItemType File
 $allVMsTagInfo | Select-Object -Skip 1 | Set-Content $allvmstaginfoFile
 
 # ----- [ End Create CSV File with all VMs/TAGs Assigned ] ----------------------------
-{{< /highlight >}}
+```
 
 ## Step 2: Copy the csv file to the salt master
 
@@ -130,8 +131,7 @@ After I copy the csv file to the minion I run a script to create/update the grai
 ![](images/Salt-44.PNG)  
 
 Example PowerShell Code to create/update grains file on a minion:  
-{{< highlight powershell >}}
-
+```powershell
 # ----- [ Start Create Grain File with TAGs Assigned ] ----------------------------
 
 $allvmstaginfoFile = "C:\vCROCS\allvmstaginfo.csv"
@@ -180,8 +180,7 @@ else{
 } # End else
 
 # ----- [ End Create Grain File with TAGs Assigned ] ----------------------------
-
-{{< /highlight >}}
+```
 
 ---
 
@@ -206,7 +205,7 @@ Anytime you make any changes to the grains file you should run the function salt
 ![](images/Salt-46.PNG)  
 
 Example Orchestration SLS file:
-{{< highlight powershell >}}
+```powershell
 copy_tags:
   salt.function:
     - name: cp.get_file
@@ -238,8 +237,7 @@ Cleanup_Tag_File:
     - tgt_type: grain
     - arg:    
       - 'C:\vCROCS\allvmstaginfo.csv'
-
-{{< /highlight >}}
+```
 
 ## Salt-Run Job to Orchestrate Copy File/Run Script/Run Sync/Delete File:
 
