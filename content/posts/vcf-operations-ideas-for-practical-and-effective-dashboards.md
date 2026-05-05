@@ -3,7 +3,11 @@ title: "VCF Operations | Ideas for Practical and Effective Dashboards"
 date: 2024-10-29T04:00:00Z
 author: "Dale Hassinger"
 tags:
-  - Dashboard
+  - VCF
+  - Dashboards
+  - Operations
+  - Samples
+  - Ideas
 categories:
   - VCF Operations
 image: "images/vcf-operations-ideas-for-practical-and-effective-dashboards-featured.png"
