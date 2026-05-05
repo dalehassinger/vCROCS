@@ -42,11 +42,10 @@ These two lines of YAML code demonstrate how to specify the `cpuCount` and `tota
 
   
 
-{{< highlight YAML >}}
+```YAML
 cpuCount: "${(input.Flavor == 'small') ? 1 : (input.Flavor == 'medium') ? 2 : (input.Flavor == 'large') ? 4 : (input.Flavor == 'other') ? input.CPU : 1}"
 totalMemoryMB: "${(input.Flavor == 'small') ? 2048 : (input.Flavor == 'medium') ? 4096 : (input.Flavor == 'large') ? 8192 : (input.Flavor == 'other') ? input.Memory * 1024 : 1024}"
-
-{{< /highlight >}}  
+```  
 
 ---
 
