@@ -57,38 +57,38 @@ In some previous posts I used the POSH-SSH module but when you use the salt-api,
 
 * Install CherryPy:
 
-{{< highlight powershell >}}
+```powershell
 pip3 install cherrypy
-{{< /highlight >}}
+```
 
 * Install the PyOpenSSL package:
 
-{{< highlight powershell >}}
+```powershell
 pip3 install pyopenssl
-{{< /highlight >}}
+```
 
 * Generate a self-signed certificate: 
 
-{{< highlight powershell >}}
+```powershell
 salt-call --local tls.create_self_signed_cert
-{{< /highlight >}}
+```
 
 * open firewall port 8000:
 
-{{< highlight powershell >}}
+```powershell
 iptables -A INPUT -i eth0 -p tcp --dport 8000 -j ACCEPT
-{{< /highlight >}}
+```
 
 
 * Edit /etc/salt/master file: 
 
-{{< highlight powershell >}}
+```powershell
 vi /etc/salt/master
-{{< /highlight >}}
+```
 
 Add these lines to the /etc/salt/master file: 
 
-{{< highlight powershell >}}
+```powershell
 external_auth:
   pam:
     root:
@@ -98,22 +98,22 @@ rest_cherrypy:
   port: 8000
   ssl_crt: /etc/pki/tls/certs/localhost.crt
   ssl_key: /etc/pki/tls/certs/localhost.key
-{{< /highlight >}}
+```
 
 * Restart salt-master and check service status for any errors:
 
-{{< highlight powershell >}}
+```powershell
 systemctl restart salt-master
 systemctl status salt-master
-{{< /highlight >}}
+```
 
 * Enable | Start salt-api and check service status for any errors:
 
-{{< highlight powershell >}}
+```powershell
 systemctl enable salt-api
 systemctl start salt-api
 systemctl status salt-api
-{{< /highlight >}}
+```
 
 ---
 
@@ -121,7 +121,7 @@ systemctl status salt-api
 
 * I did all this PowerShell code from my mac.  To use self-signed certs I use -SkipCertificateCheck. On a Windows OS the code is different.
 
-{{< highlight powershell >}}
+```powershell
 # --- PowerShell Code ---
 Invoke-WebRequest -Uri 'https://192.168.86.141:8000' -SkipCertificateCheck
 
@@ -144,13 +144,13 @@ InputFields       : {}
 Links             : {}
 RawContentLength  : 146
 RelationLink      : {}
-{{< /highlight >}}
+```
 
 * Make sure you see StatusCode: 200
 
 * Next step is to make sure you get a token:
 
-{{< highlight powershell >}}
+```powershell
 # --- PowerShell Code ---
 # --- In my code I show the PassWord. In Production DO NOT DO THIS.
 # --- There are so many different ways to include encrypted PWs in the code. 
@@ -181,8 +181,7 @@ return
 ------
 {@{token=6696846c802f78d5326a69b79d36e95015d37f5a; expire=1655025071.22838; start=1654981871.22838; user=root; eauth=pam; perms=System.Object[]}}
 6696846c802f78d5326a69b79d36e95015d37f5a
-
-{{< /highlight >}}
+```
 
 * You will see "token=" in the return data
 
@@ -192,7 +191,7 @@ return
 
 * Run a test.ping
 
-{{< highlight powershell >}}
+```powershell
 # --- PowerShell Code ---
 $minionName        = '2019DC'
 $saltServerAddress = 'https://192.168.86.110:8000'
@@ -219,11 +218,11 @@ $fetch = Invoke-RestMethod @Params -SkipCertificateCheck
 #$fetch
 $fetch.return
 $fetch.return.$minionName
-{{< /highlight >}}
+```
 
 * Check disk.usage
 
-{{< highlight powershell >}}
+```powershell
 # --- PowerShell Code ---
 $minionName        = '2019DC'
 $saltServerAddress = 'https://192.168.86.110:8000'
@@ -251,11 +250,11 @@ $fetch.return
 $fetch.return.$minionName
 $fetch.return.$minionName.'C:\'
 $fetch.return.$minionName.'C:\'.capacity
-{{< /highlight >}}
+```
 
 * Check Service Status
 
-{{< highlight powershell >}}
+```powershell
 # --- PowerShell Code ---
 $minionName        = '2019DC'
 $saltServerAddress = 'https://192.168.86.110:8000'
@@ -281,11 +280,11 @@ $fetch = Invoke-RestMethod @Params -SkipCertificateCheck
 
 # --- Service Status | True = Running | False = Stopped
 $fetch.return.$minionName
-{{< /highlight >}}
+```
 
 * Stop Service
 
-{{< highlight powershell >}}
+```powershell
 # --- PowerShell Code ---
 $minionName        = '2019DC'
 $saltServerAddress = 'https://192.168.86.110:8000'
@@ -311,11 +310,11 @@ $fetch = Invoke-RestMethod @Params -SkipCertificateCheck
 
 # --- Service Stopped | True = Stopped | False = Not Stopped
 $fetch.return.$minionName
-{{< /highlight >}}
+```
 
 * Disable Service
 
-{{< highlight powershell >}}
+```powershell
 # --- PowerShell Code ---
 $minionName        = '2019DC'
 $saltServerAddress = 'https://192.168.86.110:8000'
@@ -341,7 +340,7 @@ $fetch = Invoke-RestMethod @Params -SkipCertificateCheck
 
 # --- Service Disabled | True = Disabled | False = Not Disabled
 $fetch.return.$minionName
-{{< /highlight >}}
+```
 
 * I hope the code was helpful to get started.
 
