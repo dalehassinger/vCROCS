@@ -41,7 +41,7 @@ I am not going to go thru the process to install SaltStack Config.  There is alr
 After you get a working SaltStack Config Server setup, the first item you need to do is add the salt agent to some "Test" servers. Servers that have the salt agent installed are called minions. There is the option to not add the salt agent to servers but then you need to use SSH to connect.  Windows Servers do not have SSH available as default so you would need to install an SSH server like OpenSSH on your servers. My thoughts are I need to add something for the minions to communicate with the salt-master. Instead of adding OpenSSH to every Windows Server I chose to install and use the salt agent.  
 
 For testing you can manually install the minion agent on a server to become familiar with how the salt commands work. During the install there are two values you need to enter. The name of the master and the name you want to use for the minion. I did that on my first couple test servers but then I created some PowerShell code to install the salt minion agent.
-{{< highlight powershell >}}
+```powershell
 # ----- [ Install minion ] -----------------------------------------------
 
 # Define Username/Password
@@ -71,91 +71,128 @@ $PSText = 'C:\vCROCS\Salt-Minion-2019.2.4-Py3-AMD64-Setup.exe /S /master=salt /m
 
 # Run the command on remote Server
 Invoke-VMScript -VM $VMName -ScriptType bat -ScriptText $PSText -GuestCredential $cred
-
-{{< /highlight >}}
+```
 
 After the minion agent is installed on your server you need to accept the key on the salt master. From the CLI you can run these commands.
 
 List all keys. You should see you new minion listed in the Unaccepted Keys:
-{{< highlight powershell >}}salt-key -L{{< /highlight >}}
+```powershell
+salt-key -L
+```
 
 Accept the new minion key on the salt master:
-{{< highlight powershell >}}salt-key --accept="DBH-217"{{< /highlight >}}
+```powershell
+salt-key --accept="DBH-217"
+```
 
 If you list all keys again you should see you new minion listed in the Accepted Keys:
-{{< highlight powershell >}}salt-key -L{{< /highlight >}}
+```powershell
+salt-key -L
+```
 
 My next update will include information on how to auto accept new minions.
 
 ---
 ## Here are some basic salt commands from CLI that I have been using:
 **Show all events:**  
-{{< highlight powershell >}}salt-run state.event{{< /highlight >}}
+```powershell
+salt-run state.event
+```
 
 ![](images/post/salt-03.png)
 <a href="https://github.com/dalehassinger/geeky/raw/main/assets/images/post/salt-03.png" target="_blank">Click Here to see Larger Image of Screen Shot</a>
 
 
 **Show all events with a "Pretty" view:**  
-{{< highlight powershell >}}salt-run state.event pretty=true{{< /highlight >}}
+```powershell
+salt-run state.event pretty=true
+```
 
 ![](images/post/salt-02.png)
 <a href="https://github.com/dalehassinger/geeky/raw/main/assets/images/post/salt-02.png" target="_blank">Click Here to see Larger Image of Screen Shot</a>
 
 
 **List keys:**  
-{{< highlight powershell >}}salt-key -L{{< /highlight >}}
+```powershell
+salt-key -L
+```
 
 **Accept Key:**
-{{< highlight powershell >}}salt-key --accept="DBH-214"{{< /highlight >}}
+```powershell
+salt-key --accept="DBH-214"
+```
 
 **Delete Key:**
-{{< highlight powershell >}}salt-key -d "DBH-211,DBH-212"{{< /highlight >}}
+```powershell
+salt-key -d "DBH-211,DBH-212"
+```
 
 **Run a function on one minion:**
-{{< highlight powershell >}}salt "DBH-217" disk.usage{{< /highlight >}}
+```powershell
+salt "DBH-217" disk.usage
+```
 
 **Run a function on multiple minions:**
-{{< highlight powershell >}}salt "DBH-217,DBH-218" test.ping{{< /highlight >}}
+```powershell
+salt "DBH-217,DBH-218" test.ping
+```
 
 **Run a function on all minions:**
-{{< highlight powershell >}}salt "*" test.ping{{< /highlight >}}
+```powershell
+salt "*" test.ping
+```
 
 **Create a file:**
-{{< highlight powershell >}}salt "DBH-214" file.touch C:\vCROCS\salt.tst{{< /highlight >}}
+```powershell
+salt "DBH-214" file.touch C:\vCROCS\salt.tst
+```
 
 **Copy a file:**
-{{< highlight powershell >}}salt "DBH-214" cp.get_file salt://vCROCS/vCROCSTEST.ps1 "C:\vCROCS\vCROCSTEST.ps1"{{< /highlight >}}
+```powershell
+salt "DBH-214" cp.get_file salt://vCROCS/vCROCSTEST.ps1 "C:\vCROCS\vCROCSTEST.ps1"
+```
 
 **Delete a file:**
-{{< highlight powershell >}}salt "DBH-214" file.remove "C:\vCROCS\vCROCSTEST.ps1"{{< /highlight >}}
+```powershell
+salt "DBH-214" file.remove "C:\vCROCS\vCROCSTEST.ps1"
+```
 
 **Run a PowerShell Script:**
-{{< highlight powershell >}}salt "DBH-214" cmd.script source="salt://vCROCS/vCROCSTEST.ps1" shell=powershell{{< /highlight >}}
+```powershell
+salt "DBH-214" cmd.script source="salt://vCROCS/vCROCSTEST.ps1" shell=powershell
+```
 
 **Restart the Salt Master Service:**
-{{< highlight powershell >}}service salt-master restart{{< /highlight >}}
+```powershell
+service salt-master restart
+```
 
 **Show the status of the raas and salt-master services:**
-{{< highlight powershell >}}
+```powershell
 systemctl status raas
 systemctl status salt-master
-{{< /highlight >}}
+```
 
 **Stop and start the salt-master service:**
-{{< highlight powershell >}}
+```powershell
 systemctl stop salt-master
 systemctl start salt-master
-{{< /highlight >}}
+```
 
 **Get IP address of all minions:**
-{{< highlight powershell >}}salt '*' network.ip_addrs{{< /highlight >}}
+```powershell
+salt '*' network.ip_addrs
+```
 
 **Ping All Minions:**
-{{< highlight powershell >}}salt "*" test.ping{{< /highlight >}}
+```powershell
+salt "*" test.ping
+```
 
 **Disk Space Usage on all Minions:**
-{{< highlight powershell >}}salt "*" disk.usage{{< /highlight >}}
+```powershell
+salt "*" disk.usage
+```
 
 ---
 
