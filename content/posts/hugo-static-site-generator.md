@@ -29,8 +29,7 @@ To create the web pages Hugo is so FAST! It is the fastest file creation framewo
 
 ---
 
-{{< highlight Bash >}}
-
+```Bash
 # To create the static web pages you just run the hugo command.
 
 Mac-mini:hugo dalehassinger$ hugo
@@ -72,8 +71,7 @@ Serving pages from memory
 Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
 Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
-
-{{< /highlight >}}
+```
 
 ---
 
