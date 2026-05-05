@@ -64,8 +64,7 @@ The properties under resources in the yaml code will be used like parameters in 
 ---
 
 Click to expand code:  
-{{< highlight powershell >}}
-
+```powershell
 # Created by Dale Hassinger - vCrocs.info
 # Date: 01/14/2021
 # Send Property Values to ABX Script that runs script on PS Host with all Zero Trust Permissions and Modules
@@ -178,8 +177,7 @@ resources:
           address: '${input.IP}'
       name: '${input.VMName}'
       description: '${input.description}'
-
-{{< /highlight >}}
+```
 
 ## ABX Action Script:
 
@@ -190,8 +188,7 @@ In my PowerShell code I am using Write-Host to help show how the Cloud Template 
 ---
 
 Click to expand code:  
-{{< highlight powershell >}}
-
+```powershell
 function handler($context, $payload) {
 
   # Build PowerShell variables
@@ -251,8 +248,7 @@ function handler($context, $payload) {
   
   return $LASTEXITCODE
 }
-
-{{< /highlight >}}
+```
 
 ## Subscription:
 
