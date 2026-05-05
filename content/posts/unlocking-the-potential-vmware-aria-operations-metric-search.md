@@ -41,26 +41,26 @@ I really like how the results of a metric search will stack and then you can scr
 
 In this example the metric search found all VMs with CPU|Ready ms > 750 ms. When search is complete you can define the search further by selecting the parent host.   
 
-{{< highlight SQL >}}
+```SQL
 # --- Find All VMs with CPU|Ready ms > 750 ms
 Metric: Virtual Machine where CPU|Ready ms > 750 ms
-{{< /highlight >}}  
+```  
 
 ![](images/metric-search-02.gif)  
 
 Now lets take the search used above and define the results further by specifying host or cluster.
-{{< highlight SQL >}}
+```SQL
 # --- Find All VMs with CPU|Ready ms > 750 ms WHERE the host is esx-02a.corp.local
 Metric: Virtual Machine where CPU|Ready ms > 750 ms childOf esx-02a.corp.local
 
 # --- Find All VMs with CPU|Ready ms > 750 ms WHERE the cluster is Cluster-01
 Metric: Virtual Machine where CPU|Ready ms > 750 ms childOf Cluster-01
-{{< /highlight >}}  
+```  
 
 ---
 
 ## Example Metric Searches for VMs:
-{{< highlight SQL >}}
+```SQL
 # --- Find All VMs with CPU usage % greater than 90
 Metric: Virtual Machine where CPU|Usage % > 90
 
@@ -81,13 +81,12 @@ Metric: Virtual Machine where CPU|Usage % > 0 and Memory|Usage % > 0 and Configu
 
 # --- Show CPU and Memory usage for all VMs in a specific Cluster
 Metric: Virtual Machine where CPU|Usage % > 0 and Memory|Usage % > 0 and Summary|Parent Cluster equals 'Cluster-02'
-
-{{< /highlight >}}  
+```  
 
 ---
 
 ## Example Metric Searches for Hosts:
-{{< highlight SQL >}}
+```SQL
 # --- Show Hosts with High CPU Usage
 Metric: Host System where CPU|Usage % > 80
 
@@ -105,27 +104,26 @@ Metric: Host System where Badge|Workload % > 75
 
 # --- Show CPU Usage and Memory Usage for all Hosts In a Specific Cluster
 Metric: Host System where CPU|Usage % > 0 and Memory|Usage % > 0 and Summary|Parent Cluster equals 'Cluster-01'
-{{< /highlight >}}  
+```  
 
 ---
 
 ## Example Metric Searches for Clusters:
-{{< highlight SQL >}}
+```SQL
 # --- Show Clusters where DRS was turned off
 Metric: Cluster Configuration|DRS Configuration|Enabled of Cluster Compute Resource where Cluster Configuration|DRS Configuration|Enabled equals 'false'
-{{< /highlight >}}  
+```  
 
 ---
 
 ## Example Metric Searches for Datastores:
-{{< highlight SQL >}}
+```SQL
 # --- Show Datastores where Capacity used is greater than 75%
 Metric: Datastore where Capacity|Used Space % > 75
 
 # --- Show Datastores where Health is less than 100%
 Metric: Datastore where Badge|Health % < 100
-
-{{< /highlight >}}  
+```  
 
 ---
 
