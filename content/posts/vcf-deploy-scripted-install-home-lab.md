@@ -354,7 +354,7 @@ This script automates the setup of VCF Cloud Builder and prepares the configurat
 ---
 
 
-{{< highlight powershell >}}
+```powershell
 # Script to create Cloud Builder VM and json file
 # Author: Dale Hassinger
 # Based on Script by: William Lam and some other examples I saw on vCommunity sites
@@ -1024,8 +1024,7 @@ New-LogEvent "VCF Lab Deployment Complete!"
 New-LogEvent "StartTime: $StartTime"
 New-LogEvent "EndTime: $EndTime"
 New-LogEvent "Duration: $duration minutes to Deploy CloudBuilder"
-
-{{< /highlight >}}
+```
 
 ---
 
