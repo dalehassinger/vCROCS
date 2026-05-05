@@ -25,8 +25,7 @@ Powershell code to add disk to a Remote Windows Server | VMware VM:
 
 ---
 
-{{< highlight powershell >}}
-
+```powershell
 #The Following code shows how to add a New Drive, bring drive online, initialize and format:
 
 #Connect to vCenter
@@ -55,8 +54,7 @@ $C = Invoke-Command -ComputerName $VMname {Get-WmiObject -Class Win32_Volume -Fi
 $C_AllocationUnitSize = ($C.BLOCKSIZE/1024)
 $C_AllocationUnitSize = ‘Disk Allocation Unit Size: ‘ + $C_AllocationUnitSize + ‘k’
 $C_AllocationUnitSize
-
-{{< /highlight >}}
+```
 
 ---
 
