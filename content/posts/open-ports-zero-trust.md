@@ -27,8 +27,7 @@ Living in a zero trust environment can be challenging. Here is some code that I 
 
 ---
 
-{{< highlight Powershell >}}
-
+```Powershell
 $PortNumber = '443'
 $Destination = 'Server.vCrocs.info'
 
@@ -44,8 +43,7 @@ else{
 } # end else
 
 Write-Output  $PortOpened
-
-{{< /highlight >}}
+```
 
 ---
 
@@ -53,12 +51,10 @@ Write-Output  $PortOpened
 
 If you work with VMware vRealize Suite of appliances here are some commands (curl and Netcat) that can be used with Linux OS to test if ports are open to destination servers.  
 
-{{< highlight Bash >}}
-
+```Bash
 curl -v telnet://server01.vCROCS.info:443
 nc -ztv server01.vCROCS.info 443 -w 3
-
-{{< /highlight >}}
+```
 
 ---
 
