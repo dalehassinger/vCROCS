@@ -3,6 +3,7 @@ title: "VCF Operations for Logs | How to Automate URL Generation for Filtering R
 date: 2024-10-21T04:00:00Z
 author: "Dale Hassinger"
 tags:
+  - VCF
   - Automation
   - Deployments
   - Operations
