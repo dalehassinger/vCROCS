@@ -45,7 +45,7 @@ You can't use vRO REST API without getting bearer token first.
 
 ## (Note: When vRealize Automation 8.4 was released there was a small change to api to get Bearer Token.  See the changes in the code area. Everything else has stayed the same for my processes.)  
 
-{{< highlight powershell >}}
+```powershell
 # Get Bearer Token from vRA REST API Call
 
 # Some of the commented lines are in the code for testing.  I use to check variable
@@ -94,11 +94,11 @@ $bearer_token = "Bearer " + $response.access_token
 $bearer_token = "Bearer " + $response.cspAuthToken
 
 # $bearer_token
-{{< /highlight >}}
+```
 
 ## Code to get execute a vRO Workflow using API Call (PowerShell):  
 
-{{< highlight powershell >}}
+```powershell
 # Run vRA Workflow using API Call
 
 # --- [ Variables ] ---
@@ -150,8 +150,7 @@ $body = $body -Replace("arguments_string",$PSText)
 $response = Invoke-RestMethod -SkipCertificateCheck 'https://vRA-FQDN.domain.name/vco/api/workflows/9cc3ac9d-062b-4e98-aa9d-e781e47f1234/executions' -Method 'POST' -Headers $headers -Body $body
 $response | ConvertTo-Json
 #$response
-
-{{< /highlight >}}
+```
 
 
 ## Orchestrator Workflow:
@@ -161,11 +160,9 @@ This is where you get the Workflow ID value. See highlighted area.:
 
 Sample Code to use Workflow ID:  
 
-{{< highlight powershell >}}
-
+```powershell
 $response = Invoke-RestMethod -SkipCertificateCheck 'https://vRA-FQDN.domain.name/vco/api/workflows/7452cce6-c715-482d-9127-1f3aa11523ba/executions' -Method 'POST' -Headers $headers -Body $body
-
-{{< /highlight >}}
+```
 
 
 This is where you get the input variable values. See highlighted area.:  
@@ -184,18 +181,18 @@ This is where you get the sdk-object/input variable values. See highlighted area
 
 Sample Code to specify "VC:HostSystem" and ID value:  
 
-{{< highlight powershell >}}
+```powershell
 <parameter name="vm" type="VC:HostSystem" scope="local">
    <sdk-object type="VC:VirtualMachine" id="192.168.86.200,id:host-14"/>
 </parameter>
-{{< /highlight >}}
+```
 
 **![](/img/vro-ss-06.png)**
 ## [Click Here to see Larger Image of Screen Shot](/img/vro-ss-06.png)
 
 Sample Code to specify "VC:VirtualMachine" and ID value (VM.ExtensionData.MoRef.Value):  
 
-{{< highlight powershell >}}
+```powershell
 <parameter name="vm" type="VC:VirtualMachine" scope="local">
    <sdk-object type="VC:VirtualMachine" id="192.168.86.200,id:vm-3006"/>
 </parameter>
@@ -226,8 +223,7 @@ $body = $body -Replace("vmstring",$vmMoref)
 $body = $body -Replace("vCenterstring",$vCenter)
 
 $body
-
-{{< /highlight >}}
+```
 
 ---
 
