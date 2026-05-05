@@ -3,7 +3,12 @@ title: "VMware Aria Automation | How to send messages and updates"
 date: 2024-03-17T04:00:00Z
 author: "Dale Hassinger"
 tags:
+  - VMware
   - VMware Aria Automation
+  - Teams Messages
+  - Google Spaces
+  - Alerts
+  - Messages
 categories:
   - VCF Automation
 image: "images/vmware-aria-automation-how-to-send-messages-and-updates-featured.png"
@@ -91,7 +96,8 @@ This YAML code shows all the Properties that I want to send to a ABX Action or O
 
   
 
-{{< highlight YAML >}}  
+```YAML
+  
 formatVersion: 1
 name: Ubuntu-20-with-minion
 version: 9
@@ -146,8 +152,7 @@ resources:
       networkType: existing
       constraints:
         - tag: Network:vCenter-VMs
-
-{{< /highlight >}}  
+```  
 
 ---
 
@@ -185,7 +190,8 @@ Here's an example script for sending notifications to Microsoft Teams.
 
   
 
-{{< highlight PowerShell >}}  
+```PowerShell
+  
 
 function handler($context, $inputs) {
 
@@ -278,8 +284,7 @@ $messageCard = @{
     $outPut = "Done"
     return $outPut
 }
-
-{{< /highlight >}}  
+```  
 
 ---
 
@@ -287,7 +292,8 @@ This code is to send a message to Google Spaces.
 
   
 
-{{< highlight PowerShell >}}  
+```PowerShell
+  
 
 function handler($context, $inputs) {
 
@@ -409,8 +415,7 @@ $messageBody = @{
 
   return $outPut
 }
-
-{{< /highlight >}}  
+```  
 
 ---
 
@@ -473,7 +478,8 @@ Code Examples. At the start of each Orchestrator Workflow, the code for retrievi
 
   
 
-{{< highlight PowerShell >}}  
+```PowerShell
+  
 function Handler($context, $inputs) {
 
     # Build PowerShell variables
@@ -565,8 +571,7 @@ $messageCard = @{
 
     return $output
 }
-
-{{< /highlight >}}  
+```  
 
 ---
 
@@ -634,7 +639,8 @@ Code Example.
 
 
 
-{{< highlight PowerShell >}}  
+```PowerShell
+  
 
 function Handler($context, $inputs) {
 
@@ -702,8 +708,7 @@ $messageCard = @{
 
     return $output
 }
-
-{{< /highlight >}}  
+```  
 
 ---
 
