@@ -4,6 +4,8 @@ date: 2022-11-01T04:00:00Z
 author: "Dale Hassinger"
 tags:
   - VMware
+  - Culture
+  - Benefits
   - vExpert
 categories:
   - Career
