@@ -33,17 +33,17 @@ This is where beacons and reactors work with minion configurations that you want
 
 This beacon.conf example is for service state changes. The Beacon sends an event to the salt master if a Windows Service is started/stopped.
 
-{{< highlight powershell >}}
+```powershell
 beacons:
   service:
     - services:
        Spooler:
          onchangeonly: true
-{{< /highlight >}}
+```
 
 This is what the event will look like in the events if you are monitoring.
 
-{{< highlight powershell >}}
+```powershell
 salt/beacon/DBH-211/service/Spooler     {
     "Spooler": {
         "running": true
@@ -52,25 +52,23 @@ salt/beacon/DBH-211/service/Spooler     {
     "id": "DBH-211",
     "service_name": "Spooler"
 }
-
-{{< /highlight >}}
+```
 
 ## Reactors:  
 
 ## Reactor File: Monitors the event bus for events specified. IE: salt/beacon/*/service/Spooler
 
-{{< highlight powershell >}}
+```powershell
 reactor:
   - 'salt/auth':                              # React to a new minion
     - salt://reactor/accept-key.sls           # Run this state to auto accept new minion
   - 'salt/beacon/*/service/Spooler':          # React to Spooler Service Change
     - salt://vCROCS/spooler_auto_stop.sls     # Run this state
-
-{{< /highlight >}}
+```
 
 ## How the beacons and reactors work together:
 
-{{< highlight powershell >}}
+```powershell
 # What this line is doing in the reactor is watching for an beacon event from any minion
 # The * means all minions. You could specify a minion name.
 # Looking for service events.  
@@ -88,14 +86,13 @@ salt/beacon/DBH-211/service/Spooler
 # This is the state specified in my example
 
     - salt://vCROCS/spooler_auto_stop.sls
-
-{{< /highlight >}}
+```
 
 ## State File:  
 
 ## State File: Stops the Spooler Service if it was started
 
-{{< highlight powershell >}}
+```powershell
 {% if data['Spooler']['running'] == true %}
 stop_service:
   local.service.stop:
@@ -103,11 +100,11 @@ stop_service:
     - arg:
       - Spooler
 {% endif %}
-{{< /highlight >}}
+```
 
 ## State File: Starts the Spooler Service if it was stopped
 
-{{< highlight powershell >}}
+```powershell
 {% if data['Spooler']['running'] == False %}
 start_service:
   local.service.start:
@@ -115,7 +112,7 @@ start_service:
     - arg:
       - Spooler
 {% endif %}
-{{< /highlight >}}
+```
 
 ---
 
