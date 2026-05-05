@@ -5,6 +5,7 @@ author: "Dale Hassinger"
 tags:
   - Blogs
   - Stats
+  - 2024
 categories:
   - Career
 image: "images/top-blog-highlights-of-2024-featured.png"
