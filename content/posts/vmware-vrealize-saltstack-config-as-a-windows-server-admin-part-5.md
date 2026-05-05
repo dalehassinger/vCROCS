@@ -4,11 +4,13 @@ date: 2021-10-01T04:00:00Z
 author: "Dale Hassinger"
 tags:
   - SaltStack Config
+  - VMware Aria Automation
+  - vRealize Automation
   - PowerShell
   - Windows Server
   - Configuration Management
   - Grains
-  - VCF Automation
+  - POSH-SSH
 categories:
   - VCF Automation
 image: "images/vmware-vrealize-saltstack-config-as-a-windows-server-admin-part-5-featured.png"
@@ -38,14 +40,14 @@ This is what I learned about salt grains when using with a Windows OS.
 
 ## Example grains file:
 
-{{< highlight powershell >}}
+```powershell
 NSXSecurityTAGs:
 - vCROCS.Apps.VMware.SaltStack.Minion
 vCenterTAGs:
 - TAG-VM-WebServer
 - TAG-VM-vCROCS
 - TAG-App-Hugo
-{{< /highlight >}}
+```
 
 * "Grain Name": "The value of the grain".
 * In my example I wanted the grain to be named "vCenterTags" and the values will be the vCenter TAG names "TAG-VM-vCROCS, TAG-VM-WebServer, TAG-App-Hugo". I have (3) vCenter TAGs assigned to this VM.  I will be able to create a SaltStack Config Target based on any of the TAGs.
@@ -70,7 +72,7 @@ How to add the vCenter TAGs to the grains file on all your VMs in SaltStack Conf
 Get the VM Names and All Assigned vCenter TAGs
 
 PowerShell Script:
-{{< highlight powershell >}}
+```powershell
 # ----- [ SSH SaltStack Config Server - Add vCenter TAGs to Minion Grains ] --------------------------
 
 # Connect to vCenter before running this code
@@ -106,8 +108,7 @@ foreach($vmName in $VMNames){
 
 # ----- [ Terminate SSH Session ] -----------------------------
 Remove-SSHSession -SessionId 0
-
-{{< /highlight >}}
+```
 
 ## Lessons Learned:
 * Adding the POSH-SSH PowerShell module so you can create a SSH connection to the salt master opens up a lot of possibilities for your PowerShell Automation as a Windows Server Admin.
