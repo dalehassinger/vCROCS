@@ -1,6 +1,6 @@
 ---
 title: "VMUG Connect 2026 | Minneapolis"
-date: 2026-05-04T01:10:31Z
+date: 2026-04-10T04:00:00Z
 author: "Dale Hassinger"
 tags:
   - Career
