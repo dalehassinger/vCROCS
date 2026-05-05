@@ -35,7 +35,7 @@ This will allow you to create targets to:
 
 ## Salt Functions:
 
-{{< highlight powershell >}}
+```powershell
 # The POSH-SSH PowerShell module MUST be installed to use this code.
 
 # Name of Minion that you want to add grain data
@@ -187,15 +187,14 @@ Write-Host 'Disconnecting from SaltStack Config Server...'
 Remove-SSHSession -SessionId 0
 
 # ----- [ End of Code ] ---------------------------------------------------------------------------
-
-{{< /highlight >}}
+```
 
 ---
 
 ## Example grains file after running script
 The default location of the grains file is in directory “C:\salt\conf"  
 
-{{< highlight powershell >}}
+```powershell
 vCROCS_Windows_Feature:
 - FileAndStorage-Services | File and Storage Services
 - NET-Framework-45-Core | .NET Framework 4.7
@@ -234,7 +233,7 @@ vCROCS_Windows_Installed_Software:
 - VMware Tools | 11.3.5.18557794
 vCROCS_last_grains_update:
 - 01/14/2022
-{{< /highlight >}}
+```
 
 ---
 
