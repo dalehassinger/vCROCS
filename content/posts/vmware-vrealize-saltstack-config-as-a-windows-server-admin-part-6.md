@@ -4,10 +4,12 @@ date: 2021-10-09T04:00:00Z
 author: "Dale Hassinger"
 tags:
   - SaltStack Config
+  - VMware Aria Automation
+  - vRealize Automation
   - PowerShell
   - Windows Server
   - Configuration Management
-  - VCF Automation
+  - POSH SSH
 categories:
   - VCF Automation
 image: "images/vmware-vrealize-saltstack-config-as-a-windows-server-admin-part-6-featured.png"
@@ -37,8 +39,7 @@ Normally I will use a Products APIs to do all these types of processes. I looked
 
 ## Salt PowerShell Functions:  
 
-{{< highlight powershell >}}
-
+```powershell
 # ----- [ Start of Functions ] --------------------------------------------------------------------------------------------------------------
 # The POSH-SSH PS module MUST be installed to use these functions.
 
@@ -187,14 +188,11 @@ function invoke-SSC.test.ping
 
 
 # ----- [ End of Functions ] --------------------------------------------------------------------------------------------------------------
-
-
-{{< /highlight >}}
+```
    
 ## Examples to show how to use the Salt PowerShell Functions above:
 
-{{< highlight powershell >}}
-
+```powershell
 # ----- [ Connect to SSC Server ] --------------------------------------------------
 
 # DO NOT use plain text PW's in your Code. I am only showing PW to make it easier to understand the code. 
@@ -296,8 +294,7 @@ $Params = @{
 
 # Run Function
 invoke-SSC.test.ping @Params
-
-{{< /highlight >}}
+```
 
 ## Lessons Learned:
 * Adding the POSH-SSH PowerShell module so you can create a SSH connection to the salt master opens up a lot of possibilities for your PowerShell Automation as a Windows Server Admin.
