@@ -44,7 +44,8 @@ Here is Javascript code for the Action that returns all existing AD OUs to popul
 
 **Code:**  
 
-{{< highlight javascript >}}  
+```javascript
+  
 // Orchestrator Action to list AD Sub OUs
 // Created by the VMware by Broadcom Healthcare Aria Team
 
@@ -75,8 +76,7 @@ for each (var ouObject in childOUs){
 System.log("Existing Sub OUs: " + data);
 
 return data
-
-{{< /highlight >}}  
+```  
 
 ---
 
@@ -84,7 +84,8 @@ Here is Javascript code for the Action that verifies that the AD OU structure is
 
 **Code:**  
 
-{{< highlight javascript >}}  
+```javascript
+  
 // Orchestrator Action to Verify AD OU Structure
 // Created by the VMware by Broadcom Healthcare Aria Team
 
@@ -158,8 +159,7 @@ if(ous.length > 0){
     System.log("OU " + parentOU + " Not Found")
     return "OU " + parentOU + " Not Found"
 }
-
-{{< /highlight >}}  
+```  
 
 
 
